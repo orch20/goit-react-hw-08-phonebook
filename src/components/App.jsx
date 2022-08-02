@@ -13,6 +13,21 @@ state = {
     {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'},],
   filter: ''
 }
+    componentDidMount() { 
+        const contacts = localStorage.getItem('contacts')
+        if (contacts) {
+            this.setState({ contacts: JSON.parse(contacts) })
+        }
+    }
+    
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.contacts !== this.state.contacts) {
+            localStorage.setItem('contacts', JSON.stringify(this.state.contacts))
+            console.log('didUpdate :>> ', 'didUpdate');
+        }
+     }
+    
+    
     
     filterChange = (event) => {
         this.setState({ filter: event.target.value })
