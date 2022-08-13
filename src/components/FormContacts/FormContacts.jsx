@@ -5,7 +5,6 @@ export const FormContacts = props => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const data = { name, number };
-  console.log(data);
 
   const OnSubmit = e => {
     e.preventDefault();
