@@ -23,7 +23,7 @@ const contactsSlice = createSlice({
 
 export const { add, remove } = contactsSlice.actions;
 
-contactsSlice(console.log('add, remove', add, remove));
+console.log('add, remove', add, remove);
 
 export const store = configureStore({
   reducer: {
