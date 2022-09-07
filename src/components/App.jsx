@@ -5,10 +5,9 @@ import { Filter } from './Filter/Filter';
 import { Container } from './Container.styled';
 
 import { useSelector, useDispatch } from 'react-redux';
+
 import { addContacts, removeContacts } from '../redux/contacts/contacts-slice';
-
 import { setFilter } from 'redux/filter/filter-slice';
-
 import { getContacts } from 'redux/contacts/contacts-selectors';
 import { getFilter } from 'redux/filter/filter-selectors';
 
@@ -16,14 +15,6 @@ export const App = () => {
   const contacts = useSelector(getContacts);
   const filter = useSelector(getFilter);
   const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   localStorage.setItem('contacts', JSON.stringify(contacts));
-  //   const contactsExist = localStorage.getItem('contacts');
-  //   if (contactsExist) {
-  //     dispatch(addContacts(contactsExist));
-  //   }
-  // }, [contacts]);
 
   const getFilteredContacts = () =>
     contacts.filter(contact =>
