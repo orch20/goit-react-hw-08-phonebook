@@ -11,15 +11,16 @@ const contactsSlice = createSlice({
   name: 'contacts',
   initialState: initialStore,
   reducers: {
-    addContacts: (state, action) => {
-      state.push(action.payload);
+    addContacts: (store, action) => {
+      console.log('state', store);
+      store.push(action.payload);
     },
-    removeContacts: (state, action) => {
-      return state.filter(({ id }) => id !== action.payload);
+    removeContacts: (store, action) => {
+      return store.filter(({ id }) => id !== action.payload);
     },
   },
 });
 
 export const { addContacts, removeContacts } = contactsSlice.actions;
-console.log('add', addContacts);
+console.log('add', addContacts.toString());
 export default contactsSlice;

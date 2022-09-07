@@ -1,12 +1,4 @@
-// useEffect(() => {
-//   localStorage.setItem('contacts', JSON.stringify(contacts));
-// const contactsExist = localStorage.getItem('contacts');
-// if (contactsExist) {
-//   setContacts(JSON.parse(contactsExist));
-// }
-// }, [contacts]);
-
-import React, { useEffect } from 'react';
+// import React, { useEffect } from 'react';
 import { FormContacts } from './FormContacts/FormContacts';
 import { RenderContactsList } from './RenderContactsList/RenderContactsList';
 import { Filter } from './Filter/Filter';
@@ -23,17 +15,20 @@ import { getFilter } from 'redux/filter/filter-selectors';
 export const App = () => {
   const contacts = useSelector(getContacts);
   const filter = useSelector(getFilter);
-
-  useEffect(() => {
-    localStorage.setItem('contacts', JSON.stringify(contacts));
-  }, [contacts]);
-
-  // const getFilteredContacts = () =>
-  //   contacts.filter(contact =>
-  //     contact.name.toLowerCase().includes(filter.toLowerCase())
-  //   );
-
   const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   localStorage.setItem('contacts', JSON.stringify(contacts));
+  //   const contactsExist = localStorage.getItem('contacts');
+  //   if (contactsExist) {
+  //     dispatch(addContacts(contactsExist));
+  //   }
+  // }, [contacts]);
+
+  const getFilteredContacts = () =>
+    contacts.filter(contact =>
+      contact.name.toLowerCase().includes(filter.toLowerCase())
+    );
 
   const formSubmitHandler = payload => {
     const findSimilarContact = contacts.find(
@@ -65,7 +60,7 @@ export const App = () => {
       <Filter value={filter} onFilterChange={filterChange} />
       <>
         <RenderContactsList
-          // contactsList={getFilteredContacts()}
+          contactsList={getFilteredContacts()}
           onDeleteContact={deleteContact}
         />
       </>

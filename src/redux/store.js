@@ -8,4 +8,3 @@ export const store = configureStore({
     filter: filterSlice.reducer,
   },
 });
-console.log('contactsSlice', store);
