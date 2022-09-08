@@ -9,7 +9,7 @@ const initialStore = [
 ];
 
 const contactsSlice = createSlice({
-  name: 'contacts',
+  name: 'items',
   initialState: initialStore,
   reducers: {
     addContacts: {

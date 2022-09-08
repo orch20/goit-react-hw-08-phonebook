@@ -8,9 +8,8 @@ export const RenderContactsList = () => {
   const contacts = useSelector(getContacts);
   const filter = useSelector(getFilter);
   const dispatch = useDispatch();
-
   const getFilteredContacts = contacts.filter(contact =>
-    contact.name.toLowerCase().includes(filter.toLowerCase())
+    contact.name.toLowerCase()?.includes(filter.toLowerCase())
   );
 
   const onDeleteContact = payload => {
