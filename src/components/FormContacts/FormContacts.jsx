@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ContactForm, ContactInput, Button } from './FormContacts.styled';
-import { addContacts } from 'redux/contacts/contacts-slice';
+// import { addContacts } from 'redux/contacts/contacts-slice';
 import { useSelector, useDispatch } from 'react-redux';
 import { getContacts } from 'redux/contacts/contacts-selectors';
 
@@ -20,8 +20,8 @@ export const FormContacts = () => {
     if (findSimilarContact) {
       alert('Contact already exists');
     } else {
-      const action = addContacts(payload);
-      dispatch(action);
+      // const action = addContacts(payload);
+      // dispatch(action);
     }
   };
 
