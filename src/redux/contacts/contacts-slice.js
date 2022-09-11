@@ -1,6 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchContacts } from './contacts-operation';
-import { nanoid } from 'nanoid';
+import {
+  fetchContacts,
+  addContacts,
+  removeContacts,
+} from './contacts-operation';
 
 const initialStore = {
   items: [],
@@ -21,6 +24,30 @@ const contactsSlice = createSlice({
       store.items = payload;
     },
     [fetchContacts.rejected]: (store, { payload }) => {
+      store.loading = false;
+      store.error = payload;
+    },
+    [addContacts.pending]: store => {
+      store.loading = true;
+      store.error = null;
+    },
+    [addContacts.fulfilled]: (store, { payload }) => {
+      store.loading = false;
+      store.items.push(payload);
+    },
+    [addContacts.rejected]: (store, { payload }) => {
+      store.loading = false;
+      store.error = payload;
+    },
+    [removeContacts.pending]: store => {
+      store.loading = true;
+      store.error = null;
+    },
+    [removeContacts.fulfilled]: (store, { payload }) => {
+      store.loading = false;
+      store.items = store.items.filter(({ id }) => id !== payload);
+    },
+    [removeContacts.rejected]: (store, { payload }) => {
       store.loading = false;
       store.error = payload;
     },
