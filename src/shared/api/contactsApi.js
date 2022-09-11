@@ -10,13 +10,11 @@ export const getContactsApi = async () => {
 };
 
 export const addContactsApi = async data => {
-  console.log('data', data);
   const { data: result } = await instance.post('/', data);
   return result;
 };
 
 export const removeContactsApi = async id => {
-  console.log('id', id);
   const { data: result } = await instance.delete(`/${id}`);
   return result;
 };

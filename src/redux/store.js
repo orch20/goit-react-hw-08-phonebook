@@ -4,7 +4,7 @@ import filterSlice from './filter/filter-slice';
 
 const Reducer = combineReducers({
   items: contactsSlice,
-  filter: filterSlice.reducer,
+  filter: filterSlice,
 });
 
 const rootReducer = combineReducers({
