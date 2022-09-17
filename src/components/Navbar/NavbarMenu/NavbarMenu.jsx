@@ -8,18 +8,15 @@ const getClassName = ({ isActive }) => {
 };
 
 const NavbarMenu = () => {
-  const elements = () => (
-    <li key={nanoid(3)}>
-      <NavLink
-        className={getClassName}
-        //   to={'/contacts'}
-      >
-        Contacts
-      </NavLink>
-    </li>
+  return (
+    <ul className={styles.menu}>
+      <li key={nanoid(3)}>
+        <NavLink className={getClassName} to={'/contacts'}>
+          Contacts
+        </NavLink>
+      </li>
+    </ul>
   );
-  console.log('el', elements);
-  return <ul className={styles.menu}>{elements}</ul>;
 };
 
 export default NavbarMenu;
