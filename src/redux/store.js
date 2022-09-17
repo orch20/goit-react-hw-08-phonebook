@@ -4,13 +4,13 @@ import filterSlice from './filter/filter-slice';
 import authSlice from './auth/auth-slice';
 
 const Reducer = combineReducers({
-  auth: authSlice,
   items: contactsSlice,
   filter: filterSlice,
 });
 
 const rootReducer = combineReducers({
   contacts: Reducer,
+  auth: authSlice,
 });
 
 export const store = configureStore({
