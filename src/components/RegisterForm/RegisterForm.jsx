@@ -1,16 +1,12 @@
 import React, { useState } from 'react';
 import { ContactForm, ContactInput, Button } from './FormContacts.styled';
 
-// import { getContacts } from 'redux/contacts/contacts-selectors';
-
 const RegisterForm = ({ formSubmitHandler }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const data = { name, email, password };
-
-  //   const { items } = useSelector(getContacts);
 
   const OnSubmit = e => {
     e.preventDefault();
@@ -73,11 +69,11 @@ const RegisterForm = ({ formSubmitHandler }) => {
           type="password"
           name="password"
           value={password}
-          // required
+          required
           onChange={onChange}
         />
       </label>
-      <Button type="submit">Sing up</Button>
+      <Button type="submit">Sign up</Button>
     </ContactForm>
   );
 };

@@ -51,11 +51,11 @@ const RegisterForm = ({ formSubmitHandler }) => {
           type="password"
           name="password"
           value={password}
-          // required
+          required
           onChange={onChange}
         />
       </label>
-      <Button type="submit">Sing up</Button>
+      <Button type="submit">Sign in</Button>
     </ContactForm>
   );
 };
