@@ -8,8 +8,8 @@ export const signup = createAsyncThunk(
       const result = await api.singup(data);
       return result;
     } catch ({ response }) {
-      const { status, message } = response;
-      const error = { status, message };
+      const { status, data } = response;
+      const error = { status, message: data.message };
       return rejectWithValue(error);
     }
   }
@@ -22,8 +22,22 @@ export const login = createAsyncThunk(
       const result = await api.login(data);
       return result;
     } catch ({ response }) {
-      const { status, message } = response;
-      const error = { status, message };
+      const { status, data } = response;
+      const error = { status, message: data.message };
+      return rejectWithValue(error);
+    }
+  }
+);
+
+export const logout = createAsyncThunk(
+  'auth/logout',
+  async (_, { rejectWithValue }) => {
+    try {
+      const result = await api.logout();
+      return result;
+    } catch ({ response }) {
+      const { status, data } = response;
+      const error = { status, message: data.message };
       return rejectWithValue(error);
     }
   }
