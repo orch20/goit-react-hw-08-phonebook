@@ -24,9 +24,20 @@ export const login = async data => {
 };
 
 export const logout = async () => {
-  const result = await instance.post('/users/logout');
+  const data = await instance.post('/users/logout');
   setToken();
-  return result;
+  return data;
+};
+
+export const getCurrentUser = async token => {
+  try {
+    setToken(token);
+    const data = await instance.get('/users/current');
+    return data;
+  } catch (error) {
+    setToken();
+    throw error;
+  }
 };
 
 export default instance;

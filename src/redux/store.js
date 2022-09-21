@@ -14,15 +14,10 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-const Reducer = combineReducers({
+const rootReducer = combineReducers({
   items: contactsSlice,
   filter: filterSlice,
 });
-
-// const rootReducer = combineReducers({
-// contacts: Reducer,
-// auth: authSlice,
-// });
 
 const persistConfig = {
   key: 'token',
@@ -34,7 +29,7 @@ const persistedReducer = persistReducer(persistConfig, authSlice);
 
 export const store = configureStore({
   reducer: {
-    contacts: Reducer,
+    contacts: rootReducer,
     auth: persistedReducer,
   },
   middleware: getDefaultMiddleware =>

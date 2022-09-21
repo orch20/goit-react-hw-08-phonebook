@@ -5,7 +5,16 @@ import { Route, Routes } from 'react-router-dom';
 import Navbar from './Navbar/Navbar';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import PublicRoute from './PublicRoute/PublicRoute';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { currentUser } from 'redux/auth/auth-operations';
+
 export const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(currentUser());
+  }, [dispatch]);
+
   return (
     <>
       <Navbar />
