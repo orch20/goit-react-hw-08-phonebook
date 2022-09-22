@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { getUser } from 'redux/auth/auth-selectors';
 import { logout } from 'redux/auth/auth-operations';
+import css from './NavbarUser.module.css';
 
 const NavbarUser = () => {
   const { name } = useSelector(getUser);
@@ -10,7 +11,7 @@ const NavbarUser = () => {
 
   return (
     <div>
-      <span>{name}</span>
+      <span className={css.userName}>{name}</span>
       <button onClick={onLogout} type="button">
         Log out
       </button>

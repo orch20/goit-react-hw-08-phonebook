@@ -2,7 +2,7 @@ import { signup } from '../../redux/auth/auth-operations';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAuthError } from 'redux/auth/auth-selectors';
 import RegisterForm from '../../components/RegisterForm/RegisterForm';
-// import { Navigate } from 'react-router-dom';
+import css from '../Container.module.css';
 
 const RegisterPage = () => {
   const dispatch = useDispatch();
@@ -17,8 +17,8 @@ const RegisterPage = () => {
   //   return <Navigate to="/contacts" />;
   // }
   return (
-    <div className="container">
-      <h2>Register page</h2>
+    <div className={css.container}>
+      <h2>Sign up</h2>
       <RegisterForm formSubmitHandler={onRegister} />
       {status === 400 && <p>{message} User email exist</p>}
     </div>

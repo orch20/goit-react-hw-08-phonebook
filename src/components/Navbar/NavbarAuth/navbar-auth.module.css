@@ -1,0 +1,10 @@
+.link {
+  font-size: large;
+  font-weight: 700;
+  color: black;
+  text-decoration: none;
+}
+
+.link.active {
+  color: #8abec3;
+}

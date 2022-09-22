@@ -1,9 +1,8 @@
 import { login } from '../../redux/auth/auth-operations';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAuthError } from 'redux/auth/auth-selectors';
-// import useAuth from 'shared/hooks/useAuth';
 import LoginForm from '../../components/LoginForm/LoginForm';
-// import { Navigate } from 'react-router-dom';
+import css from '../Container.module.css';
 
 const LoginPage = () => {
   const dispatch = useDispatch();
@@ -18,8 +17,8 @@ const LoginPage = () => {
   //   return <Navigate to="/contacts" />;
   // }
   return (
-    <div className="container">
-      <h2>Login page</h2>
+    <div className={css.container}>
+      <h2>Log in</h2>
       <LoginForm formSubmitHandler={onLogin} />
       {status === 400 && <p>{message} Try again</p>}
     </div>

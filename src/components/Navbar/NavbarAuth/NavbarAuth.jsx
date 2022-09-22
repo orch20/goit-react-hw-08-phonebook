@@ -1,15 +1,19 @@
 import { NavLink } from 'react-router-dom';
 
-import styles from './navbar-auth.module.css';
+import css from './navbar-auth.module.css';
+const getClassName = ({ isActive }) => {
+  const className = isActive ? `${css.link} ${css.active}` : css.link;
+  return className;
+};
 
 const NavbarAuth = () => {
   return (
-    <div className={styles.wrapper}>
-      <NavLink to="/register" className={styles.link}>
+    <div className={css.wrapper}>
+      <NavLink to="/register" className={getClassName}>
         Register
-      </NavLink>
-      |
-      <NavLink to="/login" className={styles.link}>
+      </NavLink>{' '}
+      |{' '}
+      <NavLink to="/login" className={getClassName}>
         Login
       </NavLink>
     </div>
