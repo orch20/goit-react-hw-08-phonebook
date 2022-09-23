@@ -1,6 +1,7 @@
 import Contacts from 'pages/Contacts/Contacts';
 import RegisterPage from 'pages/RegisterPage/RegisterPage';
 import LoginPage from 'pages/LoginPage/LoginPage';
+import InvitingPage from 'pages/InvitingPage/InvitingPage';
 import { Route, Routes } from 'react-router-dom';
 import Navbar from './Navbar/Navbar';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
@@ -22,6 +23,7 @@ export const App = () => {
         <Route element={<PublicRoute />}>
           <Route path="register" element={<RegisterPage />} />
           <Route path="login" element={<LoginPage />} />
+          <Route index element={<InvitingPage />} />
         </Route>
         <Route element={<PrivateRoute />}>
           <Route path="contacts" element={<Contacts />} />
