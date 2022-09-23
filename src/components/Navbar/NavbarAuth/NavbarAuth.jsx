@@ -8,15 +8,19 @@ const getClassName = ({ isActive }) => {
 
 const NavbarAuth = () => {
   return (
-    <div className={css.wrapper}>
-      <NavLink to="/register" className={getClassName}>
-        Register
-      </NavLink>{' '}
-      |{' '}
-      <NavLink to="/login" className={getClassName}>
-        Login
-      </NavLink>
-    </div>
+    <>
+      <div></div>
+      <div className={css.wrapper}>
+        <NavLink to="/register" className={getClassName}>
+          Register
+        </NavLink>{' '}
+        |{' '}
+        <NavLink to="/login" className={getClassName}>
+          Login
+        </NavLink>
+      </div>
+      <div></div>
+    </>
   );
 };
 

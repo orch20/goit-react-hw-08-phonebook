@@ -10,12 +10,14 @@ const NavbarUser = () => {
   const onLogout = () => dispatch(logout());
 
   return (
-    <div>
-      <span className={css.userName}>{name}</span>
-      <button onClick={onLogout} type="button">
-        Log out
-      </button>
-    </div>
+    <>
+      <div>
+        <span className={css.userName}>{name}</span>
+        <button onClick={onLogout} type="button">
+          Log out
+        </button>
+      </div>
+    </>
   );
 };
 

@@ -8,3 +8,7 @@
 .link.active {
   color: #8abec3;
 }
+
+.link:hover {
+  color: #8abec3;
+}
