@@ -69,6 +69,7 @@ const RegisterForm = ({ formSubmitHandler }) => {
           type="password"
           name="password"
           value={password}
+          autocomplete="off"
           required
           onChange={onChange}
         />
